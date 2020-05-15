@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: iris-service
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 5000
+  selector:
+    app: iris-service
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: iris-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iris-service
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
+  template:
+    metadata:
+      labels:
+        app: iris-service
+    spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
+      containers:
+      - name: iris-service
+        image: acrallainz.azurecr.io/iris-service:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 250m
+          limits:
+            cpu: 500m
