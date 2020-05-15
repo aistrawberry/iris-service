@@ -1,0 +1,5 @@
+flask
+logzio-python-handler
+atlassian-python-api
+mlflow
+scikit-learn
