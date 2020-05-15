@@ -10,7 +10,6 @@ import argparse
 fileConfig('log.ini')
 LOGGER = logging.getLogger('iris.serving.logger')
 
-
 def create_app(model_uri, feature_rule):
     app = Flask('iris-service')
     app.logger.removeHandler(default_handler)
