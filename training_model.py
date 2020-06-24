@@ -61,9 +61,7 @@ if __name__ == "__main__":
     # set tags
     parser.add_argument('--test_size', type=float, default=0.2)
     parser.add_argument('--feature_rule', type=int, default=2)
-    parser.add_argument('--source_type', type=str, default='LOCAL')
-
-
+    parser.add_argument('--source_type', type=str, default='CLOUD_IDE')
 
     parser.add_argument('--mlflow_experiment', type=str, default='iris-model')
     args = parser.parse_args()
