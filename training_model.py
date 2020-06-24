@@ -6,6 +6,7 @@ import mlflow
 import mlflow.sklearn
 import argparse
 import logging.config
+import os
 
 LOGGER = logging.getLogger('iris.train.logger')
 
@@ -50,6 +51,8 @@ def train_model(test_size, feature_rule, num_estimators):
         # LOGGER.info(run.info)
         return model_uri
 
+os.environ("AZURE_STORAGE_ARTIFACT", "wasbs://mlflow@h10dlbtoolsgprodhgocv0.blob.core.windows.net/models")
+os.environ("AZURE_STORAGE_ACCESS_KEY", "C/K7qoiKVz+PD6q7umEBQl+Vx+QRebXDNW/jYVqz7yEowODtVpDo0a8fQuzJ4zszYAK1gmP8GSMNWGBEoGDCQQ==")
 
 if __name__ == "__main__":
     # get parameters from run shell, expose endpoint
