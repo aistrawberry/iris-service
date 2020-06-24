@@ -68,7 +68,7 @@ if __name__ == "__main__":
     mlflow.set_experiment(args.mlflow_experiment)
 
     # set mlflow server here
-    # MLFLOW_SERVER_HOST = "http://"
+    MLFLOW_SERVER_HOST = "http://mlfow-service-webapp.customer-dev.svc:5000"
     # parser.add_argument('--mlflow_server', type=str, default=MLFLOW_SERVER_HOST)
     # mlflow.set_tracking_uri(args.mlflow_server)
 
