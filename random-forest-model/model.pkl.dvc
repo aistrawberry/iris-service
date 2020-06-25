@@ -1,0 +1,3 @@
+outs:
+- md5: d132d11105d430cc29aaa8046d898851
+  path: model.pkl
